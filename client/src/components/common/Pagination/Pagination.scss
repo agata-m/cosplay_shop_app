@@ -1,0 +1,34 @@
+@import '../../../styles/settings.scss';
+
+.pagination {
+    margin: 0 auto;
+    text-align: center;
+    
+    &_list {
+        display: flex;
+        justify-content: center;
+        list-style-type: none;
+        font-size: $base-size * 1.5;
+
+        &_item {
+            display: flex;
+            width: $base-size * 2;
+            height: $base-size * 2;
+            margin: $base-size;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            border-radius: $radius;
+            transition: .2s;
+            color: $color-text-light;
+    
+            &:hover {
+                color: $color-text;
+            }
+        
+            &--active {
+                color: $color-primary;
+            }
+        }
+    }
+}
