@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import onPageChange from '../../../redux/postsRedux';
+import onPageChange from '../../../redux/redux';
 
 import './Pagination.scss';
 import '../../../../node_modules/@fortawesome/fontawesome-free/css/all.css';
@@ -11,6 +11,7 @@ class Pagination extends React.Component {
     }
 
     changePage = (newPage) => {
+        const { onPageChange } = this.props;
         this.setState({ presentPage: newPage });
         onPageChange(newPage);
     }
@@ -23,19 +24,13 @@ class Pagination extends React.Component {
     }
 
     render() {
-        const { pages } = this.props;
+        const { pages, onPageChange } = this.props;
         const { presentPage } = this.state;
         const { changePage, goToPage } = this;
 
         return (
             <div className='pagination'>
                 <ul className='pagination_list'>
-
-                    { presentPage >= 2 && (
-                        <li className='pagination_list_item'>
-                            <i class="fas fa-chevron-left" onClick={() => {goToPage(-1)}}></i>
-                        </li>
-                    )}
 
                     {[...Array(pages)].map((el, page) =>
                         <li
@@ -46,9 +41,15 @@ class Pagination extends React.Component {
                         </li>
                     )}
 
+                    { presentPage >= 2 && (
+                        <li className='pagination_list_item'>
+                            <i className="fas fa-chevron-left" onClick={() => {goToPage(-1)}}></i>
+                        </li>
+                    )}
+
                     { presentPage !== pages && (
                         <li className='pagination_list_item'>
-                            <i class="fas fa-chevron-right" onClick={() => {goToPage(1)}}></i>
+                            <i className="fas fa-chevron-right" onClick={() => {goToPage(1)}}></i>
                         </li>
                     )}
 

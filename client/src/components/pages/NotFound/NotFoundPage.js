@@ -1,9 +1,11 @@
 import React from 'react';
 
+import SectionTitle from '../../common/SectionTitle/SectionTitle';
+
 const NotFoundPage = () => (
     <div>
-        <h1>Ups! Something went wrong</h1>
-        <h3>404 page not found</h3>
+        <SectionTitle>Ups! Something went wrong</SectionTitle>
+        <p>404 page not found</p>
     </div>
 );
 

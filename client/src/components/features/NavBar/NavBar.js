@@ -1,16 +1,27 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+
+import Logo from '../../common/Logo/Logo';
+import MainMenu from '../../layouts/MainMenu/MainMenu';
 
 import styles from './NavBar.scss';
 
 class NavBar extends React.Component {
+
+    state = {
+        links: [
+            { path: '/', title: 'Home' },
+            { path: '/faq', title: 'FAQ' },
+            { path: '/contact', title: 'Contact' },
+            { path: '/termsofuse', title: 'Terms of use' },
+        ],
+    }
     render() {
+        const { links } = this.state;
+        
         return (
             <nav styles={styles} className='navbar'>
-                <NavLink exact to='/' activeClassName='active'>Home</NavLink>
-                <NavLink exact to='/faq' activeClassName='active'>FAQ</NavLink>
-                <NavLink exact to='/contact' activeClassName='active'>Contact</NavLink>
-                <NavLink exact to='/termsofuse' activeClassName='active'>Terms of use</NavLink>
+                <Logo />
+                <MainMenu links={links} />
             </nav>
         );
     }

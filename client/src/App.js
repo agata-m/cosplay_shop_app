@@ -8,6 +8,8 @@ import Home from './components/pages/Home/HomePage';
 import Questions from './components/pages/Questions/QuestionsPage';
 import Contact from './components/pages/Contact/ContactPage';
 import TermsOfUse from './components/pages/TermsOfUse/TerminsOfUsePage';
+import Cart from './components/pages/Cart/CartPage';
+import SingleItem from './components/pages/SingleItem/SingleItemPage';
 import NotFound from './components/pages/NotFound/NotFoundPage';
 
 
@@ -17,11 +19,12 @@ class App extends React.Component {
 		return (
 			<MainLayout>
 				<Switch>
-					<h1>Hello World!</h1>
 					<Route exact path='/' component={Home} />
 					<Route exact path='/faq' component={Questions} />
 					<Route exact path='/contact' component={Contact} />
 					<Route exact path='/termsofuse' component={TermsOfUse} />
+					<Route exact path='/items/:id' component={SingleItem} />
+					<Route exact path='/cart' component={Cart} />
 					<Route component={NotFound} />
 				</Switch>
 			</MainLayout>

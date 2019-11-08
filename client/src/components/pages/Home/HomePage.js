@@ -1,8 +1,10 @@
 import React from 'react';
 
+import ItemsContainer from '../../features/Items/ItemsContainer';
+
 const HomePage = () => (
     <div>
-        <h1>Home</h1>
+        <ItemsContainer />
     </div>
 );
 
