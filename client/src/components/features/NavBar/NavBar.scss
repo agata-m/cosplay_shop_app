@@ -1,9 +1,17 @@
-a, a:visited {
-    color: black;
+@import '../../../styles/settings.scss';
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-shrink: 0;
 }
 
 .navbar {
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    align-items: center;
+
+    i {
+        margin: 0 $base-size;
+    }
 }

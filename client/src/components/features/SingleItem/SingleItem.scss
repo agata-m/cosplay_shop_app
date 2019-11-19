@@ -1,0 +1,28 @@
+@import '../../../styles/settings.scss';
+
+.single-item-container {
+    display: flex;
+
+    .single-item-photo {
+        padding: 0;
+
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+    
+    .single-item-desc {
+        padding-left: $base-size * 2;
+
+        .section-title {
+            margin-top: 0;
+        }
+
+        button {
+            margin: 0;
+        }
+
+    }
+}

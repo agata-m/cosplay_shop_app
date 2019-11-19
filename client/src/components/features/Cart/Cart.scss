@@ -1,0 +1,27 @@
+@import '../../../styles/settings.scss';
+
+
+.cart-body {
+    margin: 0;
+    padding: 0;
+
+    @media (min-width: 576px) {
+        width: 100%;
+    }
+
+    .item-row {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 0;
+    }
+
+    .order-total {
+        margin-top: $base-size * 2;
+        text-align: right;
+
+        button {
+            margin: 0;
+        }
+    }
+}

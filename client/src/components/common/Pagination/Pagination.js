@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import onPageChange from '../../../redux/redux';
 
 import './Pagination.scss';
 import '../../../../node_modules/@fortawesome/fontawesome-free/css/all.css';
 
 class Pagination extends React.Component {
     state = {
-        presetPage: this.props.initialPage || 1
+        presentPage: this.props.initialPage || 1
     }
 
     changePage = (newPage) => {
@@ -16,46 +15,57 @@ class Pagination extends React.Component {
         onPageChange(newPage);
     }
 
-    goToPage = newPageNumber => {
-        const { presentPage } = this.state;
-        const { changePage } = this;
-        const { targetPage } = presentPage + newPageNumber;
-        changePage(targetPage);
+    previousPage = () => {
+        if (this.state.presentPage > 1) {
+            this.changePage(this.state.presentPage - 1);
+        }
     }
 
+    nextPage = () => {
+        if (this.state.presentPage < this.props.pages) {
+            this.changePage(this.state.presentPage + 1);
+        }
+    }
+
+
     render() {
-        const { pages, onPageChange } = this.props;
+        const { pages } = this.props;
         const { presentPage } = this.state;
-        const { changePage, goToPage } = this;
+        const { changePage } = this;
 
         return (
             <div className='pagination'>
                 <ul className='pagination_list'>
 
+                    {presentPage > 1 && (
+                        <li
+                            className={`pagination_list_item${(true) ? ' pagination_list_item--active' : ''}`}
+                            onClick={this.previousPage}>
+                            <i className="fas fa-chevron-left" />
+                        </li>
+                    )}
+
                     {[...Array(pages)].map((el, page) =>
                         <li
                             key={++page}
                             onClick={() => { changePage(page) }}
-                            className={`pagination_list_item${((page) === presentPage) ? ' pagination_list_item--active' : ''}`}>
+                            className={`pagination_list_item${(page === presentPage) ? ' pagination_list_item--active' : ''}`}>
                             {page}
                         </li>
                     )}
 
-                    { presentPage >= 2 && (
-                        <li className='pagination_list_item'>
-                            <i className="fas fa-chevron-left" onClick={() => {goToPage(-1)}}></i>
-                        </li>
-                    )}
-
-                    { presentPage !== pages && (
-                        <li className='pagination_list_item'>
-                            <i className="fas fa-chevron-right" onClick={() => {goToPage(1)}}></i>
+                    {presentPage < pages && (
+                        <li
+                            className={`pagination_list_item${(true) ? ' pagination_list_item--active' : ''}`}
+                            onClick={this.nextPage}>
+                            <i className="fas fa-chevron-right" />
                         </li>
                     )}
 
                 </ul>
             </div>
         );
+
     }
 }
 

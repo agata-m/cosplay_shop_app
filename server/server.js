@@ -7,6 +7,7 @@ const config = require('./config');
 const mongoose = require('mongoose');
 const helmet = require('helmet');
 const sanitize = require('mongo-sanitize');
+const loadTestData = require('./testData');
 
 const app = express();
 
@@ -27,6 +28,7 @@ let db = mongoose.connection;
 
 db.once('open', () => {
     console.log('Connected to the database');
+   loadTestData(); 
 });
 
 db.on('error', (err) => console.log('Error' + err));

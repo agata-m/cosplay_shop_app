@@ -1,0 +1,28 @@
+@import '../../../styles/settings.scss';
+
+.sorting-container {
+  margin-right: $base-size * 4;
+  
+  .sorting-options-list {
+    list-style-type: none;
+    padding-left: 0;
+    
+
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      line-height: 2;
+      p {
+        padding-right: $base-size;
+        margin-bottom: 0;
+      }
+
+      &:hover {
+        cursor: pointer;
+        transition: 0.2;
+        color: $color-text;
+      }
+    }
+  }
+}

@@ -1,18 +1,42 @@
 @import '../../../styles/settings.scss';
 
 .item-summary {
-    border-bottom: 1px solid $color-textfield-border;
-    padding: $base-size;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-items: flex-end;
+
+    margin-left: $base-size;
     margin-bottom: $base-size;
-    margin-left: -$base-size;
+    background-color: darken($color-text-bright, 3%);
+    padding: $base-size;
     transition: .2s;
     cursor: pointer;
+
+    .item-summary-card {
+        display: block;
+        border: none;
+        background-color: transparent;
+
+        .badge {
+            display: inline;
+        }
+
+        img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            margin-top: $base-size * 0.5;
+            margin-bottom: $base-size * 0.5;
+        }
+
+        .card-body {
+            padding: 0;  
+        }
+    }
 }
 
 .item-summary:hover {
-    margin-left: -$base-size*2;
-    margin-top: -$base-size / 5;
-    border-radius: $radius;
-    box-shadow: 0 0 20px rgba(0,0,0,0.1);
-    padding-left: $base-size * 1.5;
+    transition: .2s;
+    background-color: darken($color-text-bright, 6%);
 }

@@ -1,0 +1,7 @@
+@import '../../../styles/settings.scss';
+
+.footnote {
+    display: flex;
+    justify-content: space-between;
+    flex-shrink: 0;
+}

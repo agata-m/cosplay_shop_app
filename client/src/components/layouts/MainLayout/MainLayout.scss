@@ -1,0 +1,11 @@
+@import '../../../styles/settings.scss';
+
+.main {
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 0;
+
+  &>div {
+    width: 100%;
+  }
+}

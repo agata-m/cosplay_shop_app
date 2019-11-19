@@ -1,0 +1,10 @@
+@import '../../../styles/settings.scss';
+
+.cart-item-row {
+    flex-wrap: nowrap !important;
+
+    .cart-item-desc {
+        display: flex;
+        flex-direction: column;
+    }
+}

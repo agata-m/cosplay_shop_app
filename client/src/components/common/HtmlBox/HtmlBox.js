@@ -8,8 +8,4 @@ const HtmlBox = ({ children, ...otherProps }) => (
     </p>
 );
 
-HtmlBox.propTypes = {
-    children: PropTypes.string,
-};
-
 export default HtmlBox;

@@ -1,0 +1,25 @@
+@import '../../../styles/settings.scss';
+
+.items-list-container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+  .items-list-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    
+    .items-list {
+      display: flex;
+
+  
+      &>a {
+        flex: 0 50%;
+      }
+    }
+  }
+}

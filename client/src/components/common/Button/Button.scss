@@ -1,7 +1,7 @@
 @import '../../../styles/settings.scss';
 
 .button {
-  background: transparent;
+  background: $color-text-bright;
   border: 1px solid;
   color: $color-text-light;
   text-align: center;

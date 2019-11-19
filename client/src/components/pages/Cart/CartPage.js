@@ -1,11 +1,11 @@
 import React from 'react';
 import PageTitle from '../../common/PageTitle/PageTitle';
-import SingleItem from '../../features/SingleItem/SingleItem';
+import CartContainer from '../../features/Cart/CartContainer';
 
 const CartPage = () => (
     <div>
         <PageTitle>Your cart</PageTitle>
-        <SingleItem />
+        <CartContainer />
     </div>
 );
 
