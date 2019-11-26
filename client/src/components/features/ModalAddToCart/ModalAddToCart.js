@@ -1,7 +1,9 @@
 /* eslint react/no-multi-comp: 0, react/prop-types: 0 */
 
 import React, { useState } from 'react';
-import { Button, Modal, ModalHeader, ModalFooter } from 'reactstrap';
+import { Link } from 'react-router-dom';
+import { Modal, ModalHeader, ModalFooter } from 'reactstrap';
+import Button from '../../common/Button/Button';
 
 const ModalAddToCart = ( props ) => {
 
@@ -11,12 +13,16 @@ const ModalAddToCart = ( props ) => {
 
     return (
         <div>
-            <Button variant='primary' onClick={toggle}>Add to cart {buttonLabel}</Button>
+            <Button variant='primary' onClick={toggle}>Add to cart</Button>
             <Modal isOpen={modal} toggle={toggle} className={className}>
             <ModalHeader toggle={toggle}>Item has been added to cart!</ModalHeader>
                 <ModalFooter>
-                    <Button color='primary' onClick={toggle}>Continue shopping</Button>{' '}
-                    <Button color='secondary' onClick={toggle}>Go to cart</Button>
+                    <Link to='/'>
+                        <Button variant='primary' onClick={toggle}>Continue shopping</Button>
+                    </Link>
+                    <Link to='/cart'>
+                        <Button variant='secondary' onClick={toggle}>Go to cart</Button>
+                    </Link>
                 </ModalFooter>  
             </Modal>
         </div>

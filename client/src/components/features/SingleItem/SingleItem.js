@@ -6,6 +6,7 @@ import Spinner from '../../common/Spinner/Spinner';
 import Alert from '../../common/Alert/Alert';
 import HtmlBox from '../../common/HtmlBox/HtmlBox';
 import SectionTitle from '../../common/SectionTitle/SectionTitle';
+import SmallTitle from '../../common/SmallTitle/SmallTitle';
 import Button from '../../common/Button/Button';
 import ModalAddToCart from '../ModalAddToCart/ModalAddToCart';
 
@@ -27,7 +28,6 @@ class SingleItem extends React.Component {
         
         if(isInCart.length === 0) {
             addToCart(items);
-            
         } else {
             addItemQuantity(match.params.id);
         };
@@ -39,17 +39,21 @@ class SingleItem extends React.Component {
         const { items, request } = this.props;
 
         if(request.pending === false && request.success === true) {
+            
+
             return (
                 <Container className='single-item-container'> 
                     <Col className='single-item-photo'>
                         <img src={`${items.picture}`} alt='' />
                     </Col>
                     <Col className='single-item-desc'>
-                        <SectionTitle>{items.name}</SectionTitle>
-                        <div>£{items.price}</div>
+                        <SmallTitle>{items.name}</SmallTitle>
+                        <SectionTitle>£{items.price}</SectionTitle>
                         <HtmlBox>{items.description}</HtmlBox>
                         <Button onClick={this.handleAddToCart}>Add to cart</Button>
-                        <ModalAddToCart/>
+
+                        {this.handleAddToCart ? <ModalAddToCart /> : ''}
+                        
                     </Col>
                 </Container>
                 

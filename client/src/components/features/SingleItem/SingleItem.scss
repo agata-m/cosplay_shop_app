@@ -2,19 +2,28 @@
 
 .single-item-container {
     display: flex;
+    flex-direction: column;
+    max-width: 100% !important;
+
+    &.container {
+        padding: 0;
+    }
 
     .single-item-photo {
         padding: 0;
 
         img {
             height: 100%;
+            max-height: 30rem;
             width: 100%;
             object-fit: cover;
         }
     }
     
     .single-item-desc {
-        padding-left: $base-size * 2;
+        padding-top: $base-size * 2;
+        padding-left: 0;
+        padding-right: 0;
 
         .section-title {
             margin-top: 0;

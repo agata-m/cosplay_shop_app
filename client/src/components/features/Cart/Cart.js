@@ -2,15 +2,24 @@ import React from 'react';
 
 import Button from '../../common/Button/Button';
 import Alert from '../../common/Alert/Alert';
+import SectionTitle from '../../common/SectionTitle/SectionTitle';
 import CartItem from './CartItem';
+import ModalDiscountCode from '../ModalDiscountCode/ModalDiscountCode';
 
 import { Container, Row } from 'reactstrap';
 import './Cart.scss';
 
+
 class Cart extends React.Component {
 
+    handleAddDiscount = () => {
+        const { addDiscountCode, calculatePrice } = this.props;
+        addDiscountCode();
+        calculatePrice();
+    }
+
     render() {
-        const { cart, price } = this.props;
+        const { cart, price, discountCodeStatus } = this.props;
 
         if(cart.length !== 0) {
             return (
@@ -27,12 +36,9 @@ class Cart extends React.Component {
                         
                     </div>
                     <Row className='order-total'>
-                        <div>
-                            <input placeholder='discount code'></input>
-                            <Button variant='primary'>Discount code</Button>
-                        </div>
-                        <div>Total: £{price.toFixed(2)}</div>
-                        <Button variant='primary'>Buy</Button>
+                        <ModalDiscountCode />
+                        <SectionTitle>Total: £{price.toFixed(2)}</SectionTitle>
+                        <Button variant='primary' className='button-buy'>Buy</Button>
                     </Row>
                 </Container>
             )

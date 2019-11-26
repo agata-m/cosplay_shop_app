@@ -35,8 +35,8 @@ class CountingItems extends React.Component {
         const { cart, items } = this.props;
 
         return (
-            <div>
-                <div className='item-counter'>
+            <div className='item-counter'>
+                <div className='item-counter-actions'>
                     <Button variant='secondary' onClick={ this.handleMinusItemQuantity }>–</Button>
                     <div>{items.quantity}</div>
                     <Button variant='secondary' onClick={ this.handleAddItemQuantity }>+</Button>

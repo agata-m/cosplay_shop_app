@@ -1,5 +1,24 @@
 @import '../../../styles/settings.scss';
 
 .item-counter {
+    display: flex;
+    flex-direction: column;
+
+    .item-counter-actions {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        text-align: center;
     
+        button {
+            padding: 0.1rem 0.5rem;
+            margin: 0;
+        }
+    }
+    
+    button.button--danger {
+        margin-right: 0;
+        margin-bottom: 0;
+    }
 }
+

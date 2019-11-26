@@ -29,6 +29,7 @@ export const getItemsSort = ({ items }) => {
 export const getItemsCount = ({ items }) => items.amount;
 export const getCart = ({ items }) => items.cart;
 export const getTotalPrice = ({ items }) => items.totalPrice;
+export const getDiscountStatus = ({ items }) => items.discount;
 export const getOrderStatus = ({ items }) => items.orderStatus;
 
 //ACTIONS
@@ -48,6 +49,7 @@ export const ADD_ITEM_QUANTITY = createActionName('ADD_ITEM_QUANTITY');
 export const MINUS_ITEM_QUANTITY = createActionName('MINUS_ITEM_QUANTITY');
 
 export const CALCULATE_PRICE = createActionName('CALCULATE_PRICE');
+export const ADD_DISCOUNT_CODE = createActionName('ADD_DISCOUNT_CODE');
 export const MAKE_ORDER = createActionName('MAKE_ORDER');
 
 export const loadItems = payload => ({ payload, type: LOAD_ITEMS});
@@ -66,6 +68,7 @@ export const addItemQuantity = id => ({ id, type: ADD_ITEM_QUANTITY });
 export const minusItemQuantity = id => ({ id, type: MINUS_ITEM_QUANTITY });
 
 export const calculatePrice = () => ({ type: CALCULATE_PRICE });
+export const addDiscountCode = () => ({ type: ADD_DISCOUNT_CODE });
 export const makeOrder = () => ({ type: MAKE_ORDER });
 
 
@@ -86,6 +89,8 @@ const initialState = {
     key: '',
     direction: '',
     totalPrice: 0,
+    discount: 1,
+    discountStatus: false,
     orderStatus: false,
 };
 
@@ -179,13 +184,26 @@ export default function reducer(statePart = initialState, action = {}) {
 
             if(statePart.cart.length !== 0) {
                 let calculatedTotalPrice = statePart.cart.map(cartItem => cartItem.item ? cartItem.price * cartItem.quantity : cartItem.price * cartItem.quantity);
+                calculatedTotalPrice = statePart.discountStatus ? calculatedTotalPrice * action.payload.discount : calculatedTotalPrice;
                 calculatedTotalPrice = calculatedTotalPrice.reduce((price) => price);
                 roundedPrice = parseFloat(calculatedTotalPrice.toFixed(2));
             } else {
                 roundedPrice = 0;
             }
 
-            return { ...statePart, totalPrice: roundedPrice }
+            return {
+                ...statePart,
+                totalPrice: roundedPrice,
+                discount: action.discount
+            }
+
+        case ADD_DISCOUNT_CODE:
+
+            return {
+                ...statePart,
+                discount: 0.8,
+                discountStatus: true,
+            }
 
         case MAKE_ORDER:
 

@@ -27,7 +27,7 @@ mongoose.connect(config.DB, { useNewUrlParser: true});
 let db = mongoose.connection;
 
 db.once('open', () => {
-    console.log('Connected to the database');
+   console.log('Connected to the database');
    loadTestData(); 
 });
 
