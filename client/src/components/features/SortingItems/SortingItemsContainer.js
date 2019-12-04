@@ -16,8 +16,8 @@ const mapStateToProps = state => ({
     items: getItemsSort(state),
 });
 
-const mapDispatchToProps = {
-    sortItems
-};
+const mapDispatchToProps = dispatch => ({
+    sortItems: (sort) => dispatch(sortItems(sort)),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(SortingItemsContainer);

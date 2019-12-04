@@ -7,7 +7,7 @@ import './ItemSummary.scss';
 
 const ItemSummary = ({ id, name, price, tag, picture }) => (
     
-    <Col xs='6' sm='6' md='6' lg='6' xl='6' className="item-summary">
+    <Col className="item-summary">
         <NavLink to={`/items/${id}`} >
             <Card className="item-summary-card">
                 <Badge color="secondary">{tag}</Badge>

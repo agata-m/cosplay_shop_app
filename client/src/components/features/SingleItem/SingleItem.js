@@ -1,6 +1,6 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
-import { withRouter, NavLink } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 import Spinner from '../../common/Spinner/Spinner';
 import Alert from '../../common/Alert/Alert';
@@ -8,14 +8,34 @@ import HtmlBox from '../../common/HtmlBox/HtmlBox';
 import SectionTitle from '../../common/SectionTitle/SectionTitle';
 import SmallTitle from '../../common/SmallTitle/SmallTitle';
 import Button from '../../common/Button/Button';
-import ModalAddToCart from '../ModalAddToCart/ModalAddToCart';
 
-import { Container, Col } from 'reactstrap';
+import { Container, Col, Modal, ModalHeader, ModalFooter } from 'reactstrap';
 import './SingleItem.scss';
 
 
-
 class SingleItem extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            isModalOpen: false
+        }
+
+        this.showModal = this.showModal.bind(this);
+        this.toggle = this.toggle.bind(this);
+    }
+
+    toggle() {
+        this.setState({
+            isModalOpen: !this.state.isModalOpen
+        });
+    }
+
+    showModal() {
+        this.setState({
+            isModalOpen: true
+        });
+    }
 
     componentDidMount() {
         const { loadSingleItem, match } = this.props;
@@ -23,9 +43,9 @@ class SingleItem extends React.Component {
     }
 
     handleAddToCart = () => {
-        const { items, cart, addToCart, addItemQuantity, calculatePrice, match } = this.props;
+        const { items, cart, toggle, addToCart, addItemQuantity, calculatePrice, match, showAddToCartModal } = this.props;
         const isInCart = cart.filter(item => item.id === match.params.id);
-        
+
         if(isInCart.length === 0) {
             addToCart(items);
         } else {
@@ -33,6 +53,7 @@ class SingleItem extends React.Component {
         };
 
         calculatePrice();
+        this.toggle();
     }
 
     render() {
@@ -50,10 +71,20 @@ class SingleItem extends React.Component {
                         <SmallTitle>{items.name}</SmallTitle>
                         <SectionTitle>£{items.price}</SectionTitle>
                         <HtmlBox>{items.description}</HtmlBox>
-                        <Button onClick={this.handleAddToCart}>Add to cart</Button>
 
-                        {this.handleAddToCart ? <ModalAddToCart /> : ''}
-                        
+                        <Button variant='primary' onClick={this.handleAddToCart}>Add to cart</Button>
+                        <Modal isOpen={this.state.isModalOpen} toggle={this.toggle}>
+                            <ModalHeader toggle={this.toggle}>Item has been added to cart!</ModalHeader>
+                            <ModalFooter>
+                                <Link to='/'>
+                                    <Button variant='primary' onClick={this.toggle}>Continue shopping</Button>
+                                </Link>
+                                <Link to='/cart'>
+                                    <Button variant='secondary' onClick={this.toggle}>Go to cart</Button>
+                                </Link>
+                            </ModalFooter>  
+                        </Modal>
+
                     </Col>
                 </Container>
                 

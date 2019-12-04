@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
-import { getItems, getRequest, loadItemsByPageRequest, getPages } from '../../../redux/redux';
+import { getRequest, loadItemsByPageRequest, getPages, getItemsSort } from '../../../redux/redux';
 import Items from './Items';
 
 const mapStateToProps = state => ({
-    items: getItems(state),
+    items: getItemsSort(state),
     request: getRequest(state),
     pages: getPages(state),
 })

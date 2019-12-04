@@ -89,7 +89,7 @@ const initialState = {
     key: '',
     direction: '',
     totalPrice: 0,
-    discount: 1,
+    discount: 0.9,
     discountStatus: false,
     orderStatus: false,
 };
@@ -152,7 +152,7 @@ export default function reducer(statePart = initialState, action = {}) {
 
         case DELETE_FROM_CART:
             
-            const deleteItemCart = statePart.cart.filter(item => item.id === action.id);
+            const deleteItemCart = statePart.cart.filter(item => item.id !== action.payload);
 
             return { ...statePart, cart: deleteItemCart};
 
@@ -178,15 +178,24 @@ export default function reducer(statePart = initialState, action = {}) {
                 cart: minusItemCart,
             }
 
+        case ADD_DISCOUNT_CODE:
+
+            return {
+                ...statePart,
+                discount: 0.9,
+                discountStatus: true,
+            }
+
         case CALCULATE_PRICE:
 
             let roundedPrice;
 
             if(statePart.cart.length !== 0) {
-                let calculatedTotalPrice = statePart.cart.map(cartItem => cartItem.item ? cartItem.price * cartItem.quantity : cartItem.price * cartItem.quantity);
-                calculatedTotalPrice = statePart.discountStatus ? calculatedTotalPrice * action.payload.discount : calculatedTotalPrice;
-                calculatedTotalPrice = calculatedTotalPrice.reduce((price) => price);
-                roundedPrice = parseFloat(calculatedTotalPrice.toFixed(2));
+                let itemsTotalPrice = statePart.cart.map(cartItem => cartItem.item ? cartItem.price * cartItem.quantity : cartItem.price * cartItem.quantity);
+                itemsTotalPrice = itemsTotalPrice.reduce((previousPrice, newPrice) => previousPrice + newPrice);
+                const totalPriceWithDiscount = statePart.discountStatus ? itemsTotalPrice * statePart.discount : itemsTotalPrice;
+                roundedPrice = parseFloat(totalPriceWithDiscount.toFixed(2));
+
             } else {
                 roundedPrice = 0;
             }
@@ -195,14 +204,7 @@ export default function reducer(statePart = initialState, action = {}) {
                 ...statePart,
                 totalPrice: roundedPrice,
                 discount: action.discount
-            }
-
-        case ADD_DISCOUNT_CODE:
-
-            return {
-                ...statePart,
-                discount: 0.8,
-                discountStatus: true,
+                
             }
 
         case MAKE_ORDER:

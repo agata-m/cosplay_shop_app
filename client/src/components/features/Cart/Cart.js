@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import Button from '../../common/Button/Button';
 import Alert from '../../common/Alert/Alert';
@@ -38,7 +39,14 @@ class Cart extends React.Component {
                     <Row className='order-total'>
                         <ModalDiscountCode />
                         <SectionTitle>Total: £{price.toFixed(2)}</SectionTitle>
-                        <Button variant='primary' className='button-buy'>Buy</Button>
+                        
+                        {cart.length !== 0 ?
+                            <Link to={'summary'}>
+                                <Button variant='primary' className='button-buy'>Summary</Button>
+                            </Link> :
+                            <Button variant='danger' disabled>Summary</Button>
+                        }
+                        
                     </Row>
                 </Container>
             )

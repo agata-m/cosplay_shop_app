@@ -15,11 +15,17 @@
     
     .items-list {
       display: flex;
-
+      flex-wrap: wrap;
+      justify-content: space-between;
   
       &>a {
         flex: 0 50%;
       }
     }
   }
+}
+
+.container {
+  margin: 0 !important;
+  padding: 0 !important;
 }
