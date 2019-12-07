@@ -5,8 +5,9 @@ import './Pagination.scss';
 import '../../../../node_modules/@fortawesome/fontawesome-free/css/all.css';
 
 class Pagination extends React.Component {
+
     state = {
-        presentPage: this.props.initialPage || 1
+        presentPage: this.props.initialPage || 1,
     }
 
     changePage = (newPage) => {

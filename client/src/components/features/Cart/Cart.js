@@ -20,7 +20,7 @@ class Cart extends React.Component {
     }
 
     render() {
-        const { cart, price, discountCodeStatus } = this.props;
+        const { cart, price, discountStatus } = this.props;
 
         if(cart.length !== 0) {
             return (
@@ -37,7 +37,10 @@ class Cart extends React.Component {
                         
                     </div>
                     <Row className='order-total'>
-                        <ModalDiscountCode />
+                        <ModalDiscountCode
+                            discountStatus={discountStatus}
+                            handleAddDiscount={this.handleAddDiscount}
+                        />
                         <SectionTitle>Total: £{price.toFixed(2)}</SectionTitle>
                         
                         {cart.length !== 0 ?

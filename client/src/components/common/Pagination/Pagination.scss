@@ -1,8 +1,9 @@
 @import '../../../styles/settings.scss';
 
 .pagination {
-    margin: 0 auto;
-    text-align: center;
+    display: flex;
+    justify-content: flex-end;
+
     
     &_list {
         display: flex;
@@ -17,7 +18,7 @@
             width: $base-size * 2;
             height: $base-size * 2;
             margin: $base-size;
-            justify-content: center;
+            justify-content: flex-end;
             align-items: center;
             cursor: pointer;
             border-radius: $radius;
@@ -30,6 +31,10 @@
         
             &--active {
                 color: $color-primary;
+            }
+
+            &:last-of-type {
+                margin-right: 0;
             }
         }
     }

@@ -84,12 +84,11 @@ const initialState = {
     amount: 0,
     itemsPerPage: 3,
     itemsPage: 1,
-    presentPage: 1,
     cart: [],
     key: '',
     direction: '',
     totalPrice: 0,
-    discount: 0.9,
+    discount: 1,
     discountStatus: false,
     orderStatus: false,
 };
@@ -258,12 +257,10 @@ export const loadItemsByPageRequest = (page, itemsPerPage) => {
         dispatch(startRequest());
 
         try {
-            const itemsPerPage = 3;
             const startAt = (page - 1) * itemsPerPage;
             const limit = itemsPerPage;
 
             let res = await axios.get(`${BASE_URL}${API_URL}/items/range/${startAt}/${limit}`);
-            await new Promise((resolve, reject) => setTimeout(resolve, 2000));
 
             const payload = {
                 items: res.data.items,
