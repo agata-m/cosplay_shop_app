@@ -2,6 +2,11 @@
 
 .cart-item-row {
     margin-bottom: $base-size * 2;
+
+    &.row {
+        margin-left: 0;
+        margin-right: 0;
+    }
     
     .img-col {
         padding-left: 0;

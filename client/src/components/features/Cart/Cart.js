@@ -5,7 +5,7 @@ import Button from '../../common/Button/Button';
 import Alert from '../../common/Alert/Alert';
 import SectionTitle from '../../common/SectionTitle/SectionTitle';
 import CartItem from './CartItem';
-import ModalDiscountCode from '../ModalDiscountCode/ModalDiscountCode';
+import CheckDiscountCode from '../CheckDiscountCode/CheckDiscountCode';
 
 import { Container, Row } from 'reactstrap';
 import './Cart.scss';
@@ -37,10 +37,12 @@ class Cart extends React.Component {
                         
                     </div>
                     <Row className='order-total'>
-                        <ModalDiscountCode
-                            discountStatus={discountStatus}
-                            handleAddDiscount={this.handleAddDiscount}
-                        />
+
+                        <CheckDiscountCode
+                                discountStatus={discountStatus}
+                                handleAddDiscount={this.handleAddDiscount}
+                        /> 
+
                         <SectionTitle>Total: £{price.toFixed(2)}</SectionTitle>
                         
                         {cart.length !== 0 ?

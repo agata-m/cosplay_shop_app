@@ -55,7 +55,7 @@ const loadTestData = async () => {
             description : "These soft pointed elf ears are perfect as a part of your cosplay or an accessory for a dress up party \
             Made of food-grade material, they are super soft, non-toxic and tasteless. \
             You can easily change their color with makeup, like liquid foundation. Suitable for any skin colors.",
-            picture : "../../../pictures/elf_ears.jpg",
+            picture : "../../../pictures/elf-ears.jpg",
             quantity: 0,
         },
         {

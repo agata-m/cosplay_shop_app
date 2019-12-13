@@ -1,0 +1,27 @@
+@import '../../../styles/settings.scss';
+
+.order-summary {
+
+    .page-title {
+        font-size: $base-size * 3;
+    }
+
+    .order-table {
+
+        thead {
+            font-size: $base-size * 1.5;
+        }
+
+        .img-col {
+            padding-left: 0;
+
+            img {
+                object-fit: cover;
+                height: 10rem;
+                width: 10rem;
+            }
+            
+        }
+    }
+
+}

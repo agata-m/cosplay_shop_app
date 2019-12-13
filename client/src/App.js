@@ -13,13 +13,14 @@ import SingleItem from './components/pages/SingleItem/SingleItemPage';
 import OrderSummary from './components/pages/OrderSummary/OrderSummaryPage';
 import NotFound from './components/pages/NotFound/NotFoundPage';
 
-
 class App extends React.Component {
 
 	render() {
+
 		return (
-			<MainLayout>
+			<MainLayout >
 				<Switch>
+
 					<Route exact path='/' component={Home} />
 					<Route exact path='/faq' component={Questions} />
 					<Route exact path='/contact' component={Contact} />
@@ -28,6 +29,7 @@ class App extends React.Component {
 					<Route exact path='/cart' component={Cart} />
 					<Route exact path='/summary' component={OrderSummary} />
 					<Route component={NotFound} />
+
 				</Switch>
 			</MainLayout>
 		);

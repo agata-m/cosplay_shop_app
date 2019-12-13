@@ -1,0 +1,13 @@
+@import '../../../styles/settings.scss';
+
+.discount-code {
+    margin-top: $base-size;
+
+    .discount-code-input {
+        display: flex;
+
+        input {
+            margin-right: $base-size;
+        }
+    }
+}

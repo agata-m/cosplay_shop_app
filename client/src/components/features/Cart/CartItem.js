@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { PropTypes } from 'prop-types';
 
 import cutText from '../../../utils/cutText';
 import SectionTitle from '../../common/SectionTitle/SectionTitle';
@@ -42,10 +41,6 @@ const CartItem = (props) => {
         
     );
     
-};
-
-CartItem.propTypes = {
-    items: PropTypes.object.isRequired,
 };
 
 export default CartItem;

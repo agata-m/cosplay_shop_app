@@ -6,6 +6,8 @@ import Button from '../../common/Button/Button';
 import SectionTitle from '../../common/SectionTitle/SectionTitle';
 import uuid from 'uuid';
 
+import './ModalOrderSummary.scss';
+
 const ModalOrderSummary = (props) => {
 
     const [modal, setModal] = useState(false);
@@ -18,7 +20,7 @@ const ModalOrderSummary = (props) => {
             <Modal isOpen={modal} toggle={toggle} >
                 <ModalHeader>Payment details</ModalHeader>
                 <ModalBody>
-                    <SectionTitle>Your order id is<br/>{orderId}</SectionTitle><br/>
+                    <SectionTitle>Order id:<br/>{orderId}</SectionTitle><br/>
                     <div>
                         <b>CosCrafts Ltd</b><br/>
                         Platform 9 3/4<br/>

@@ -3,20 +3,21 @@ import Spinner from '../../common/Spinner/Spinner';
 import Alert from '../../common/Alert/Alert';
 
 import SectionTitle from '../../common/SectionTitle/SectionTitle';
-import SmallTitle from '../../common/SmallTitle/SmallTitle';
 import PageTitle from '../../common/PageTitle/PageTitle';
 import ModalOrderSummary from '../ModalOrderSummary/ModalOrderSummary';
 
 import { Table } from 'reactstrap';
 
+import './OrderSummary.scss';
+
 const OrderSummary = (props) => {
-    const { cart, request, price, discountStatus } = props;
+    const { cart, request, price } = props;
 
     if(request.pending === false && request.success === true) {
         return (
-            <div>
-                <PageTitle>Order summary</PageTitle>
-                <Table>
+            <div className='order-summary'>
+                <PageTitle className='order-title'>Order summary</PageTitle>
+                <Table className='order-table'>
                     <thead>
                         <tr>
                             <th></th>
@@ -29,18 +30,15 @@ const OrderSummary = (props) => {
 
                         {cart.map(item =>
                             <tr>
-                                <td><img src={item.picture} alt='' /></td>
-                                <td>{item.name}</td>
-                                <td>{item.quantity}</td>
-                                <td>£{(item.price * item.quantity).toFixed(2)}</td>
+                                <td className='img-col'><img src={item.picture} alt='' /></td>
+                                <td className='name-col'>{item.name}</td>
+                                <td className='quantity-col'>{item.quantity}</td>
+                                <td className='price-col'>£{(item.price * item.quantity).toFixed(2)}</td>
                             </tr>
                         )}
                     </tbody>
                 </Table>
-                <div>
-                    {discountStatus ? <SectionTitle>Discount: 5%</SectionTitle> : ''}
-                    <SmallTitle>Total price: £{price}</SmallTitle>
-                </div>
+                <SectionTitle>Total price: £{price}</SectionTitle>
                 <ModalOrderSummary />
             </div>
         )

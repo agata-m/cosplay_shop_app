@@ -29,7 +29,7 @@ export const getItemsSort = ({ items }) => {
 export const getItemsCount = ({ items }) => items.amount;
 export const getCart = ({ items }) => items.cart;
 export const getTotalPrice = ({ items }) => items.totalPrice;
-export const getDiscountStatus = ({ items }) => items.discount;
+export const getDiscountStatus = ({ items }) => items.discountStatus;
 export const getOrderStatus = ({ items }) => items.orderStatus;
 
 //ACTIONS
@@ -202,8 +202,6 @@ export default function reducer(statePart = initialState, action = {}) {
             return {
                 ...statePart,
                 totalPrice: roundedPrice,
-                discount: action.discount
-                
             }
 
         case MAKE_ORDER:

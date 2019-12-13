@@ -9,7 +9,7 @@ import SectionTitle from '../../common/SectionTitle/SectionTitle';
 import SmallTitle from '../../common/SmallTitle/SmallTitle';
 import Button from '../../common/Button/Button';
 
-import { Container, Col, Modal, ModalHeader, ModalFooter } from 'reactstrap';
+import { Container, Col, Modal, ModalHeader, ModalFooter, Badge } from 'reactstrap';
 import './SingleItem.scss';
 
 
@@ -68,6 +68,7 @@ class SingleItem extends React.Component {
                         <img src={`${items.picture}`} alt='' />
                     </Col>
                     <Col className='single-item-desc'>
+                        <Badge color="secondary">{items.tag}</Badge>
                         <SmallTitle>{items.name}</SmallTitle>
                         <SectionTitle>£{items.price}</SectionTitle>
                         <HtmlBox>{items.description}</HtmlBox>
