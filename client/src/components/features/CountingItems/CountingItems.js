@@ -19,7 +19,7 @@ class CountingItems extends React.Component {
     }
 
     handleMinusItemQuantity = () => {
-        const { items, cart, minusItemQuantity, deleteFromCart, calculatePrice } = this.props;
+        const { items, minusItemQuantity, deleteFromCart, calculatePrice } = this.props;
 
         if(items.quantity === 1) {
             deleteFromCart(items.id);
@@ -32,7 +32,7 @@ class CountingItems extends React.Component {
 
     render() {
 
-        const { cart, items } = this.props;
+        const { items } = this.props;
 
         return (
             <div className='item-counter'>

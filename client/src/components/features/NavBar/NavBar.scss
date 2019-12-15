@@ -12,11 +12,23 @@
     align-items: center;
     padding: 0;
 
+    @media(max-width: 768px) {
+        align-items: flex-start !important;
+        padding-left: 0 !important;
+        margin-bottom: $base-size;
+    }
+
     .main-menu {
         margin: 0;
 
         i {
             margin: 0 $base-size;
+        }
+
+        @media(max-width: 768px) {
+            li:first-of-type {
+                margin-left: 0;
+            }
         }
     }
 }

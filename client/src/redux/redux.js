@@ -30,7 +30,6 @@ export const getItemsCount = ({ items }) => items.amount;
 export const getCart = ({ items }) => items.cart;
 export const getTotalPrice = ({ items }) => items.totalPrice;
 export const getDiscountStatus = ({ items }) => items.discountStatus;
-export const getOrderStatus = ({ items }) => items.orderStatus;
 
 //ACTIONS
 export const LOAD_ITEMS = createActionName('LOAD_ITEMS');
@@ -47,10 +46,8 @@ export const ADD_TO_CART = createActionName('ADD_TO_CART');
 export const DELETE_FROM_CART = createActionName('DELETE_FROM_CART');
 export const ADD_ITEM_QUANTITY = createActionName('ADD_ITEM_QUANTITY');
 export const MINUS_ITEM_QUANTITY = createActionName('MINUS_ITEM_QUANTITY');
-
 export const CALCULATE_PRICE = createActionName('CALCULATE_PRICE');
 export const ADD_DISCOUNT_CODE = createActionName('ADD_DISCOUNT_CODE');
-export const MAKE_ORDER = createActionName('MAKE_ORDER');
 
 export const loadItems = payload => ({ payload, type: LOAD_ITEMS});
 export const loadSingleItem = payload => ({ payload, type: LOAD_SINGLE_ITEM });
@@ -66,10 +63,8 @@ export const addToCart = payload => ({ payload, type: ADD_TO_CART });
 export const deleteFromCart = payload => ({ payload, type: DELETE_FROM_CART });
 export const addItemQuantity = id => ({ id, type: ADD_ITEM_QUANTITY });
 export const minusItemQuantity = id => ({ id, type: MINUS_ITEM_QUANTITY });
-
 export const calculatePrice = () => ({ type: CALCULATE_PRICE });
 export const addDiscountCode = () => ({ type: ADD_DISCOUNT_CODE });
-export const makeOrder = () => ({ type: MAKE_ORDER });
 
 
 //INITIAL STATE
@@ -90,7 +85,6 @@ const initialState = {
     totalPrice: 0,
     discount: 1,
     discountStatus: false,
-    orderStatus: false,
 };
 
 //REDUCER
@@ -203,15 +197,6 @@ export default function reducer(statePart = initialState, action = {}) {
                 ...statePart,
                 totalPrice: roundedPrice,
             }
-
-        case MAKE_ORDER:
-
-            return {
-                ...statePart,
-                orderStatus: true,
-                cart: [],
-                totalPrice: 0
-            };
 
         default:
             return statePart;

@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import Button from '../../common/Button/Button';
 import SectionTitle from '../../common/SectionTitle/SectionTitle';
+import { NavLink } from 'react-router-dom';
 import uuid from 'uuid';
 
 import './ModalOrderSummary.scss';
@@ -16,7 +17,7 @@ const ModalOrderSummary = (props) => {
 
     return (
         <div className='modal-order-summary'>
-            <Button variant='primary' onClick={toggle}>Go to checkout</Button>
+            <Button variant='primary' onClick={toggle} className='checkout-btn'>Go to checkout</Button>
             <Modal isOpen={modal} toggle={toggle} >
                 <ModalHeader>Payment details</ModalHeader>
                 <ModalBody>
@@ -33,7 +34,9 @@ const ModalOrderSummary = (props) => {
                 </ModalBody>
                 <ModalFooter>
                     <Button variant='danger' onClick={toggle}>Cancel</Button>
-                    <Button variant='primary' onClick={toggle}>Confirm and buy</Button>
+                    <NavLink to={'/'}>
+                        <Button variant='primary' onClick={toggle}>Confirm and buy</Button>
+                    </NavLink>
                 </ModalFooter>  
             </Modal>
         </div>

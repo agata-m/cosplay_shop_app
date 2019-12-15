@@ -7,6 +7,7 @@ import PageTitle from '../../common/PageTitle/PageTitle';
 import ModalOrderSummary from '../ModalOrderSummary/ModalOrderSummary';
 
 import { Table } from 'reactstrap';
+import uuid from 'uuid';
 
 import './OrderSummary.scss';
 
@@ -17,10 +18,9 @@ const OrderSummary = (props) => {
         return (
             <div className='order-summary'>
                 <PageTitle className='order-title'>Order summary</PageTitle>
-                <Table className='order-table'>
+                <Table striped className='order-table'>
                     <thead>
                         <tr>
-                            <th></th>
                             <th>Name</th>
                             <th>Quantity</th>
                             <th>Price</th>
@@ -29,8 +29,7 @@ const OrderSummary = (props) => {
                     <tbody>
 
                         {cart.map(item =>
-                            <tr>
-                                <td className='img-col'><img src={item.picture} alt='' /></td>
+                            <tr key={uuid()}>
                                 <td className='name-col'>{item.name}</td>
                                 <td className='quantity-col'>{item.quantity}</td>
                                 <td className='price-col'>£{(item.price * item.quantity).toFixed(2)}</td>
@@ -38,7 +37,7 @@ const OrderSummary = (props) => {
                         )}
                     </tbody>
                 </Table>
-                <SectionTitle>Total price: £{price}</SectionTitle>
+                <SectionTitle>Total price: £{price.toFixed(2)}</SectionTitle>
                 <ModalOrderSummary />
             </div>
         )

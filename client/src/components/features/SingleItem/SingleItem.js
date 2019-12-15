@@ -43,7 +43,7 @@ class SingleItem extends React.Component {
     }
 
     handleAddToCart = () => {
-        const { items, cart, toggle, addToCart, addItemQuantity, calculatePrice, match, showAddToCartModal } = this.props;
+        const { items, cart, addToCart, addItemQuantity, calculatePrice, match } = this.props;
         const isInCart = cart.filter(item => item.id === match.params.id);
 
         if(isInCart.length === 0) {

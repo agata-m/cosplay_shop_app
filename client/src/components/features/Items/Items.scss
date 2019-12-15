@@ -1,5 +1,10 @@
 @import '../../../styles/settings.scss';
 
+.container {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
 .items-list-container {
   display: flex;
   height: 100%;
@@ -7,12 +12,24 @@
   margin: 0;
   padding: 0;
 
+  @media(max-width: 768px) {
+    flex-direction: column;
+  }
+
   .items-list-body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     width: 100%;
-    
+
+    @media(max-width: 768px) {
+      width: 100%;
+      padding-right: $base-size !important;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
     .items-list {
       display: flex;
       flex-wrap: wrap;
@@ -23,9 +40,4 @@
       }
     }
   }
-}
-
-.container {
-  margin: 0 !important;
-  padding: 0 !important;
 }

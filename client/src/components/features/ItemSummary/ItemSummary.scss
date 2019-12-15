@@ -31,6 +31,10 @@
             object-fit: cover;
             margin-top: $base-size * 0.5;
             margin-bottom: $base-size * 0.5;
+
+            @media(max-width: 768px) {
+                height: auto;
+            }
         }
 
         .card-body {
@@ -48,4 +52,8 @@
     flex-basis: unset !important;
     flex-grow: 0 !important;
     width: 49% !important;
+
+    @media(max-width: 768px) {
+        width: 100% !important;
+    }
 }

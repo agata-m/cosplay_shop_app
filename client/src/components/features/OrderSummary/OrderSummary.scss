@@ -3,25 +3,21 @@
 .order-summary {
 
     .page-title {
-        font-size: $base-size * 3;
+        margin-bottom: $base-size * 2;
     }
 
     .order-table {
+        border-bottom: 2px solid;
+        border-color: #dee2e6;
 
         thead {
             font-size: $base-size * 1.5;
         }
-
-        .img-col {
-            padding-left: 0;
-
-            img {
-                object-fit: cover;
-                height: 10rem;
-                width: 10rem;
-            }
-            
-        }
     }
 
+    .section-title {
+        font-size: $base-size * 1.5;
+        text-align: right;
+        margin-top: $base-size * 2;
+    }
 }
