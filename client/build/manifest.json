@@ -1,11 +1,16 @@
 {
   "name": "cosplay_shop_app",
   "short_name": "Coscrafts",
-  "icons": {
+  "icons": [{
     "src": "pictures/cosplay.png",
     "sizes": "144x144",
     "type": "image/png"
   },
+  {
+    "src": "pictures/cosplay.png",
+    "sizes": "200x200",
+    "type": "image/png"
+  }],
   "start_url": "/",
   "display": "standalone",
   "background_color": "#FFF",

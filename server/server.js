@@ -12,9 +12,6 @@ const app = express();
 //import routes
 const itemRoutes = require('./routes/item.routes');
 
-//serve static files from react app
-app.use(express.static(path.join(__dirname, '/../client/build')));
-
 app.use(cors());
 app.use(helmet());
 app.use(express.urlencoded({ extended: false }));
@@ -25,6 +22,9 @@ app.use((req, res, next) => {
     sanitize(req.body);
     next();
 });
+
+//serve static files from react app
+app.use(express.static(path.join(__dirname, '/../client/build')));
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname + '/../client/build/index.html'));
