@@ -10,6 +10,11 @@
     "src": "pictures/cosplay.png",
     "sizes": "200x200",
     "type": "image/png"
+  },
+  {
+    "src": "pictures/cosplay.png",
+    "sizes": "512x512",
+    "type": "image/png"
   }],
   "start_url": "/",
   "display": "standalone",
