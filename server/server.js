@@ -1,4 +1,5 @@
 const express = require('express');
+const compression = require('compression');
 const cors = require('cors');
 const config = require('./config');
 const mongoose = require('mongoose');
@@ -12,6 +13,7 @@ const app = express();
 //import routes
 const itemRoutes = require('./routes/item.routes');
 
+app.use(compression());
 app.use(cors());
 app.use(helmet());
 app.use(express.urlencoded({ extended: false }));
