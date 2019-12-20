@@ -7,6 +7,8 @@ import SectionTitle from '../../common/SectionTitle/SectionTitle';
 import { NavLink } from 'react-router-dom';
 import uuid from 'uuid';
 
+import getCart from '../../../redux/redux';
+
 import './ModalOrderSummary.scss';
 
 const ModalOrderSummary = (props) => {

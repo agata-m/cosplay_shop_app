@@ -77,7 +77,7 @@ const initialState = {
         success: null,
     },
     amount: 0,
-    itemsPerPage: 3,
+    itemsPerPage: 4,
     itemsPage: 1,
     cart: [],
     key: '',

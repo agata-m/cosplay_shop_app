@@ -5,6 +5,11 @@
     justify-content: space-between;
     flex-wrap: wrap;
     flex-shrink: 0;
+    margin-bottom: $base-size * 2;
+
+    @media(max-width: 768px) {
+        margin-bottom: $base-size;
+    }
 }
 
 .navbar {
@@ -13,9 +18,7 @@
     padding: 0;
 
     @media(max-width: 768px) {
-        align-items: flex-start !important;
         padding-left: 0 !important;
-        margin-bottom: $base-size;
     }
 
     .main-menu {

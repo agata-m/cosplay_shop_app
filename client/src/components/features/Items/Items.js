@@ -66,7 +66,7 @@ Items.propTypes = {
 
 Items.defaultProps = {
     initialPage: 1,
-    itemsPerPage: 3,
+    itemsPerPage: 4,
     pagination: true,
 };
 

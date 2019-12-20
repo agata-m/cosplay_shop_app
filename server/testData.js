@@ -7,11 +7,9 @@ const loadTestData = async () => {
             name : "EVA foam",
             price : 1.90,
             tag : "On sale",
-            description : "EVA foam is our high density foam. This foam (light grey) is perfect for any armour or prop making! \
-            Because of the high density the cells are closed and so makes easy to sand, dremel or even lazercut! Can be heatsealed, and also easy to ingrave using a sharp knive and then heated with a heatgun. This foam can be primed with plasti dip, flexbond, flexi paint or Gesso. \
-            EVA-foam high density is easy to glue, waterproof and UV-resistant, washable, flexible and thus easy to form in to shape. Because of these properties, the foam is ideal to work with, both for the amateur and the professional hobbyist or artist. \
-            This foam is now also used in the movie world and cosplay world to make props and costumes (Ironman suit). \
-            EVA is an abbreviation of ethylene-vinyl acetate.",
+            description : "EVA foam is our high density foam. It is perfect for any armour or prop making! Because of the high density the cells are closed and so makes easy to sand, dremel or even lazercut!\
+            Can be heatsealed, and also easy to ingrave using a sharp knive and then heated with a heatgun. This foam can be primed with plasti dip, flexbond, flexi paint or Gesso. \
+            EVA-foam high density is easy to glue, waterproof and UV-resistant, washable, flexible and thus easy to form in to shape. Because of these properties, the foam is ideal to work with, both for the amateur and the professional hobbyist or artist.",
             picture : "../../../pictures/EVA foam.jpg",
             quantity: 0,
         },
