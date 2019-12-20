@@ -1,5 +1,5 @@
 # COSCRAFTS
-Visit app on [Heroku](https://coscrafts.herokuapp.com/) or [Firebase](https://coscrafts-app.firebaseapp.com/)
+## Visit app on [Heroku](https://coscrafts.herokuapp.com/) or [Firebase](https://coscrafts-app.firebaseapp.com/)
 
 ## Final project for Web Developer Bootcamp.
 Coscrafts is an online store platform selling cosplay materials and read-made props. The app was created with create-react-app and adopted to the PWA standards. 
